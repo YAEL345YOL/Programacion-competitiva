@@ -7,7 +7,7 @@ using namespace std;
 #define sp(x) fixed<<setprecision(x)
 #define all(x) x.begin(),x.end()
 int main(){
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  return 0;
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    return 0;
 }
