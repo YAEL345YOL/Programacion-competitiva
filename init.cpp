@@ -8,8 +8,6 @@ using namespace std;
 #define all(x) x.begin(),x.end()
 #define letter(x) x>=65 && x<=90 || x>=97 && x<=122 ? true:false
 #define number(x) x>=48 && x<=57 ? true:false
-// printf("%tipoDato",Variable);
-// scanf("%tipoDato",&Variable);
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
