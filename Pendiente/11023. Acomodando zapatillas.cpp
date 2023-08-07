@@ -8,10 +8,10 @@ using namespace std;
 #define all(x) x.begin(),x.end()
 #define letter(x) x>=65 && x<=90 || x>=97 && x<=122 ? true:false
 #define number(x) x>=48 && x<=57 ? true:false
-void eliminar_elementos(vector<int>&arreglo1,int index1){
+void eliminar_elemento(vector<int>&arreglo1,int index){
     vector<int>arreglo2;
     for(int x=0;x<arreglo1.size();x++){
-        if(x==index1) continue;
+        if(x==index) continue;
         arreglo2.push_back(arreglo1[x]);
     }
     arreglo1 = arreglo2;
@@ -19,7 +19,6 @@ void eliminar_elementos(vector<int>&arreglo1,int index1){
 int main(){
     cin.tie(0)->sync_with_stdio(0),cout.tie(0);
     vector<int>a;
-    vector<int>b;
     a.push_back(1);
     a.push_back(2);
     a.push_back(3);
