@@ -1,7 +1,7 @@
+// DEVYANGZ
 #include <bits/stdc++.h>
 using namespace std;
 #define nl "\n"
-#define cnl cout<<"\n"
 #define ll long long
 #define ull unsigned long long
 #define sp(x) fixed<<setprecision(x)
