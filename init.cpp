@@ -10,7 +10,7 @@ using namespace std;
 #define number(x) x>=48 && x<=57 ? true:false
 // 'A' = 65 'Z' = 90
 // 'a' = 97 'z' = 122
-// '0' = 48 '9'
+// '0' = 48 '9' = 57
 int main(){
     cin.tie(0)->sync_with_stdio(0),cout.tie(0);
     return 0;
