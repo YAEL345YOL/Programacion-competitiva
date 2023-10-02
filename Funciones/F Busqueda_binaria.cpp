@@ -1,4 +1,4 @@
-int busquedaBinaria(vector<int>&vec,int num){
+int busquedaBinaria(vector<int>&vec,int&num){
     int ini=0,fin=vec.size()-1,medio;
     while(ini<=fin){
         medio = (ini+fin)/2;
