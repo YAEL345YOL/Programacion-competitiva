@@ -15,54 +15,69 @@ using namespace std;
 /*'A' = 65 'Z' = 90
   'a' = 97 'z' = 122
   '0' = 48 '9' = 57 */
-void dfs
-    (
-    const int&nodoInicial,
-    const int&nodoFinal,
-    vector<bool>&visitado,
+int dx[] = {-1,+1,0,0},dy[] = {0,0,-1,+1};
+struct nodo{
+    int fila,columna;
+    void constructor(int fila_,int columna_){
+        fila=fila_;
+        columna=columna_;
+    }
+};
+bool valid(const int&fila,const int&columna,vector<vector<int>>&matriz){
+    return fila>=0 and columna>=0 and fila<matriz.size() and columna<matriz[0].size() and matriz[fila][columna]==1;
+}
+void DFS(
+    nodo&nodoActual,
+    nodo&nodoFinal,
     vector<int>&caminoActual,
     vector<vector<int>>&caminos,
-    vector<vector<int>>&grafo
+    vector<vector<int>>&matriz
     ){
-    visitado[nodoInicial] = 1;
-    caminoActual.pb(nodoInicial);
-    if(nodoInicial == nodoFinal){
+    matriz[nodoActual.fila][nodoActual.columna] = 2;
+    if(nodoActual.fila == nodoFinal.fila && nodoActual.columna == nodoFinal.columna){
         caminos.pb(caminoActual);
         return;
     }
-    for(int vecino:grafo[nodoInicial]){
-        if(!visitado[vecino]){
-            dfs(vecino,nodoFinal,visitado,caminoActual,caminos,grafo);
+    fore(i,0,4){
+        if(valid(nodoActual.fila+dx[i],nodoActual.columna+dy[i],matriz)){
+            nodo auxiliar;
+            auxiliar.constructor(nodoActual.fila+dx[i],nodoActual.columna+dy[i]);
+            caminoActual.pb(i);
+            DFS(auxiliar,nodoFinal,caminoActual,caminos,matriz);
+            caminoActual.pop_back();
         }
     }
-    visitado[nodoInicial] = 0;
-    caminoActual.pop_back();
+    matriz[nodoActual.fila][nodoActual.columna] = 1;
 }
-void iniciarDfs
-    (
-    const int&nodoInicial,
-    const int&nodoFinal,
+void initDFS(
+    nodo&nodoInicial,
+    nodo&nodoFinal,
     vector<vector<int>>&caminos,
-    vector<vector<int>>&grafo
+    vector<vector<int>>&matriz
     ){
-    vector<bool>visitado(grafo.size(),0);
     vector<int>caminoActual;
-    dfs(nodoInicial,nodoFinal,visitado,caminoActual,caminos,grafo);
+    DFS(nodoInicial,nodoFinal,caminoActual,caminos,matriz);
 }
 int main(){
     cin.tie(0)->sync_with_stdio(0),cout.tie(0);
+    
+    int n;
+    cin>>n;
+    
+    nodo nodoInicial,nodoFinal;
+    nodoInicial.constructor(0,0);
+    nodoFinal.constructor(n-1,n-1);
+    
+    vector<vector<int>>matriz(n,vector<int>(n));
     vector<vector<int>>caminos;
-    vector<vector<int>>grafo = {
-        {1},
-        {0,2,3},
-        {1,3},
-        {1,2,4},
-        {3}
-    };
-    iniciarDfs(0,4,caminos,grafo);
-    for(vector<int>aux:caminos){
-        for(int num:aux) cout<<num<<' ';
+    fore(i,0,n) fore(j,0,n) cin>>matriz[i][j];
+    
+    initDFS(nodoInicial,nodoFinal,caminos,matriz);
+    
+    for(vector<int>num:caminos){
+        for(int k:num) cout<<k<<' ';
         cout<<nl;
     }
+    
     return 0;
 }
