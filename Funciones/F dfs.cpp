@@ -39,9 +39,10 @@ void DFS(
             return;
         }
         fore(i,0,4){
-            if(valid(nodoActual.fila+dx[i],nodoActual.columna+dy[i],matriz)){
+            if(valid(nodoActual.fila+dx[i],nodoActual.columna+dy[i],matriz) ){
                 nodo auxiliar;
                 auxiliar.pos(nodoActual.fila+dx[i],nodoActual.columna+dy[i]);
+                caminoActual.push_back(i);
                 DFS(auxiliar,nodoFinal,caminoActual,caminos,matriz);
             }
         }
@@ -74,7 +75,12 @@ int main(){
     initDFS(nodoInicial,nodoFinal,caminos,matriz);
     
     for(vector<int>nm:caminos){
-        for(int k:nm) cout<<k<<' ';
+        for(int k:nm){
+            if(k==1) cout<<'D';
+            else if(k==2) cout<<'U';
+            else if(k==3) cout<<'L';
+            else if(k==4) cout<<'R';
+        }
         cout<<nl;
     }
     
