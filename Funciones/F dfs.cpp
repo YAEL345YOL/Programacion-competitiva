@@ -65,11 +65,7 @@ int main(){
     
     vector<vector<int>>matriz(n,vector<int>(n));
     vector<vector<int>>caminos;
-    fore(i,0,n){
-        fore(j,0,n){
-            cin>>matriz[i][j];
-        }
-    }
+    fore(i,0,n) fore(j,0,n) cin>>matriz[i][j];
     
     nodo nodoInicial,nodoFinal;
     nodoInicial.pos(0,0);
