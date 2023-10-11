@@ -36,13 +36,14 @@ void DFS(
         matriz[nodoActual.fila][nodoActual.columna] = 2;
         if(nodoActual.fila == nodoFinal.fila && nodoActual.columna == nodoFinal.columna){
             caminos.pb(caminoActual);
+            matriz[nodoActual.fila][nodoActual.columna] = 1;
             return;
         }
         fore(i,0,4){
             if(valid(nodoActual.fila+dx[i],nodoActual.columna+dy[i],matriz) ){
                 nodo auxiliar;
                 auxiliar.pos(nodoActual.fila+dx[i],nodoActual.columna+dy[i]);
-                caminoActual.push_back(i);
+                caminoActual.pb(i);
                 DFS(auxiliar,nodoFinal,caminoActual,caminos,matriz);
             }
         }
