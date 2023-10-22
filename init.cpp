@@ -16,6 +16,9 @@ using namespace std;
   'a' = 97 'z' = 122
   '0' = 48 '9' = 57 */
 int main(){
-    cin.tie(0)->sync_with_stdio(0),cout.tie(0);
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    
+  
     return 0;
 }
