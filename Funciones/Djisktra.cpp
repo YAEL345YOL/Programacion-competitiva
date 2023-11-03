@@ -1,67 +1,57 @@
-// ΨΔΣL345ΨΘL
-#include <bits/stdc++.h>
-using namespace std;
-#define nl "\n"
-#define f first
-#define s second
-#define pb push_back
-#define ll long long
-#define ull unsigned long long
-#define sp(x) fixed<<setprecision(x)
-#define all(x) x.begin(),x.end()
-#define fore(it,i,f) for(auto it=i;it<f;++it)
-#define letter(x) x>=65 && x<=90 || x>=97 && x<=122 ? true:false
-#define number(x) x>=48 && x<=57 ? true:false
-/*'A' = 65 'Z' = 90
-  'a' = 97 'z' = 122
-  '0' = 48 '9' = 57 */
-struct Edge {
-    int to;
-    int weight;
-};
-void dijkstra(vector<vector<Edge>>& graph, int source, vector<int>& dist){
-    dist.assign(graph.size(), INT_MAX);
-    dist[source] = 0;
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <limits>
 
-    priority_queue<pair<int,int>,vector<pair<int, int>>,greater<pair<int,int>>>pq;
-    pq.push({0, source});
+using namespace std;
+
+vector<int> Dijkstra(vector<vector<pair<int, int>>>& graph, int start) {
+    vector<int> distance(graph.size(), INT_MAX);
+    vector<bool> visited(graph.size(), false);
+
+    distance[start] = 0;
+
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    pq.push({0, start});
 
     while(!pq.empty()) {
         int u = pq.top().second;
-        int current_dist = pq.top().first;
         pq.pop();
-        if(current_dist > dist[u]) continue;
-        for(const Edge& edge:graph[u]) {
-            int v = edge.to;
-            int weight = edge.weight;
-            if(dist[u] + weight < dist[v]) {
-                dist[v] = dist[u] + weight;
-                pq.push({dist[v], v});
+        if (visited[u]) continue;
+        visited[u] = true;
+        for(const pair<int, int>& edge : graph[u]) {
+            int v = edge.first;
+            int w = edge.second;
+            if(distance[u] + w < distance[v]) {
+                distance[v] = distance[u] + w;
+                pq.push({distance[v], v});
             }
         }
     }
+    return distance;
 }
 
 int main() {
-    int V,E;
-    cin>>V>>E;
+    int n = 6;
+    vector<vector<pair<int, int>>> graph(n);
 
-    vector<vector<Edge>>graph(V);
+    graph[0].push_back({1, 2});
+    graph[0].push_back({2, 4});
+    graph[1].push_back({2, 1});
+    graph[1].push_back({3, 7});
+    graph[2].push_back({3, 3});
+    graph[2].push_back({4, 5});
+    graph[3].push_back({4, 2});
+    graph[4].push_back({5, 1});
 
-    fore(i,0,E){
-        int u,v,w;
-        cin>>u>>v>>w;
-        graph[u].push_back({v, w});
-        graph[v].push_back({u, w});
-    }
+    int start = 0;
+    vector<int> shortestDistances = Dijkstra(graph, start);
 
-    int source;
-    cin>>source;
+    int destination = 5;
+    int shortestDistance = shortestDistances[destination];
 
-    vector<int> dist;
-    dijkstra(graph,source,dist);
-
-    fore(i,0,V) cout<<"Distancia mínima desde "<<source<<" a "<<i<<" es "<<dist[i]<<nl;
+    if (shortestDistance == INT_MAX) cout << "No se encontró un camino desde " << start << " a " << destination << endl;
+    else cout << "La menor cantidad de nodos a recorrer desde " << start << " a " << destination << " es " << shortestDistance << endl;
 
     return 0;
 }
