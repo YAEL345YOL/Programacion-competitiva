@@ -6,12 +6,12 @@
 using namespace std;
 
 vector<int> Dijkstra(vector<vector<pair<int, int>>>& graph, int start) {
-    vector<int> distance(graph.size(), INT_MAX);
-    vector<bool> visited(graph.size(), false);
+    vector<int> distance(graph.size(),INT_MAX);
+    vector<bool> visited(graph.size(),false);
 
     distance[start] = 0;
 
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
     pq.push({0, start});
 
     while(!pq.empty()) {
@@ -19,7 +19,7 @@ vector<int> Dijkstra(vector<vector<pair<int, int>>>& graph, int start) {
         pq.pop();
         if (visited[u]) continue;
         visited[u] = true;
-        for(const pair<int, int>& edge : graph[u]) {
+        for(const pair<int, int>& edge:graph[u]) {
             int v = edge.first;
             int w = edge.second;
             if(distance[u] + w < distance[v]) {
