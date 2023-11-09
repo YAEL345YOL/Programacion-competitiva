@@ -1,57 +1,51 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <limits>
-
+// ΨΔΣL345ΨΘL
+#include <bits/stdc++.h>
 using namespace std;
-
-vector<int> Dijkstra(vector<vector<pair<int, int>>>& graph, int start) {
-    vector<int> distance(graph.size(),INT_MAX);
-    vector<bool> visited(graph.size(),false);
-
-    distance[start] = 0;
-
-    priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
-    pq.push({0, start});
-
-    while(!pq.empty()) {
-        int u = pq.top().second;
-        pq.pop();
-        if (visited[u]) continue;
-        visited[u] = true;
-        for(const pair<int, int>& edge:graph[u]) {
-            int v = edge.first;
-            int w = edge.second;
-            if(distance[u] + w < distance[v]) {
-                distance[v] = distance[u] + w;
-                pq.push({distance[v], v});
-            }
+#define nl "\n"
+#define f first
+#define s second
+#define pb push_back
+#define ll long long
+#define ull unsigned long long
+#define sp(x) fixed<<setprecision(x)
+#define all(x) x.begin(),x.end()
+#define fore(it,i,f) for(auto it=i;it<f;++it)
+#define letter(x) x>=65 && x<=90 || x>=97 && x<=122 ? true:false
+#define number(x) x>=48 && x<=57 ? true:false
+/*'A' = 65 'Z' = 90
+  'a' = 97 'z' = 122
+  '0' = 48 '9' = 57 */
+struct nodo{
+    bool visitado=false;
+    ll distancia=INT_MAX;
+    char tipo;
+};
+int dx[] = {-1,+1,0,0},dy[] = {0,0,-1,+1};
+vector<vector<nodo>>matriz;
+void djs(nodo&nodoInicial){
+    nodoInicial.distancia=0;
+}
+int main(){
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    
+    ll n;
+    cin>>n;
+    
+    matriz.resize(n,vector<nodo>(n));
+    nodo *nodoInicial,*nodoFinal;
+    
+    fore(i,0,n){
+        fore(j,0,n){
+            nodo aux;
+            cin>>aux.tipo;
+            if(aux.tipo=='S') nodoInicial = &aux;
+            else if(aux.tipo=='E') nodoFinal = &aux;
+            matriz[i][j] = aux;
         }
     }
-    return distance;
-}
-
-int main() {
-    int n = 6;
-    vector<vector<pair<int, int>>> graph(n);
-
-    graph[0].push_back({1, 2});
-    graph[0].push_back({2, 4});
-    graph[1].push_back({2, 1});
-    graph[1].push_back({3, 7});
-    graph[2].push_back({3, 3});
-    graph[2].push_back({4, 5});
-    graph[3].push_back({4, 2});
-    graph[4].push_back({5, 1});
-
-    int start = 0;
-    vector<int> shortestDistances = Dijkstra(graph, start);
-
-    int destination = 5;
-    int shortestDistance = shortestDistances[destination];
-
-    if (shortestDistance == INT_MAX) cout << "No se encontró un camino desde " << start << " a " << destination << endl;
-    else cout << "La menor cantidad de nodos a recorrer desde " << start << " a " << destination << " es " << shortestDistance << endl;
-
+    
+    djs(*nodoInicial);
+  
     return 0;
 }
