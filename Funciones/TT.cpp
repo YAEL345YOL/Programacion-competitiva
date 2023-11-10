@@ -29,12 +29,13 @@ void addConection(nodo*n1,nodo*n2, const ll&peso){
 }
 void Djikstra(nodo*nodoInicial){
     priority_queue<nodo*,vector<nodo*>,greater<nodo*>>pq;
-    nodoInicial.distancia = 0;
+    nodoInicial->distancia = 0;
     pq.push(nodoInicial);
     while(!pq.empty()){
         nodo* act = pq.top();
         pq.pop();
-        for(auto&vecino:matriz[act.num]){
+        for(auto&vecino:matriz[act->num]){
+            
         }
     }
 }
@@ -44,6 +45,9 @@ int main(){
     
     ll n;
     cin>>n;
+    nodo* nodoInicial;
+    nodoInicial = new nodo;
+    nodoInicial->num = 0;
     
     fore(i,0,n){
         ll peso;
@@ -53,6 +57,8 @@ int main(){
         cin>>n1->num>>n2->num>>peso;
         addConection(n1,n2,peso);
     }
+    
+    Djikstra(nodoInicial);
     
     return 0;
 }
