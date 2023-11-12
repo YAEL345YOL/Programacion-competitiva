@@ -1,2 +1,2 @@
 # GENERAL
-Aqui guardo mis funciones tipicas y ejercicios pendientes
+*Aqui guardo mis funciones tipicas y ejercicios pendientes*
