@@ -1,5 +1,5 @@
-int busquedaBinaria(vector<int>&vec,const int&num){
-    int ini=0,fin=vec.size()-1,medio;
+ll busquedaBinaria(vector<ll>&vec,const ll&num){
+    ll ini=0,fin=vec.size()-1,medio;
     while(ini<=fin){
         medio = (ini+fin)/2;
         if(num==vec[medio]) return medio;
