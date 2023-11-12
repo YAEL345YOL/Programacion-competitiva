@@ -1,13 +1,13 @@
-void bfs(const int &nodoInicial,vector<vector<int>>&grafo){
+void BFS(vector<vector<ll>>&grafo,const ll&nodoInicial){
     vector<bool>visitado(grafo.size(),0);
-    queue<int>visitando;
+    queue<ll>visitando;
     visitando.push(nodoInicial);
     while(!visitando.empty()){
-        int frente = visitando.front();
+        ll frente = visitando.front();
         visitando.pop();
         if(!visitado[frente]){
             visitado[frente] = 1;
-            for(int nodo:grafo[frente]) if(!visitado[nodo]) visitando.push(nodo);
+            for(auto&nodo:grafo[frente]) if(!visitado[nodo]) visitando.push(nodo);
         }
     }
 }
