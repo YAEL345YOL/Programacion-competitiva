@@ -1,28 +1,9 @@
-#include <iostream>
-#include <vector>
-
-void sieveOfEratosthenes(int n) {
-    std::vector<bool> isPrime(n + 1, true);
-
-    for (int p = 2; p * p <= n; p++) {
-        if (isPrime[p]) {
-            for (int i = p * p; i <= n; i += p) {
-                isPrime[i] = false;
-            }
+vector<bool>cribaDeEratostenes(1000000,1); // 10^6
+void generarPrimos(){
+    cribaDeEratostenes[0] = cribaDeEratostenes[1] = 0;
+    for(ll i=2;i*i<=cribaDeEratostenes.size();++i){
+        if(cribaDeEratostenes[i]){
+            for(ll j=i*i;j<cribaDeEratostenes.size();j+=i) cribaDeEratostenes[j] = 0;
         }
     }
-
-    std::cout << "Números primos hasta " << n << ": ";
-    for (int i = 2; i <= n; i++) {
-        if (isPrime[i]) {
-            std::cout << i << " ";
-        }
-    }
-    std::cout << std::endl;
-}
-
-int main() {
-    int n = 50; // Puedes ajustar este límite según tus necesidades
-    sieveOfEratosthenes(n);
-    return 0;
 }
