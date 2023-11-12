@@ -1,7 +1,5 @@
-ull factorial(const int&n){
+ull factorial(const ll&n){
     ull total=1;
-    for(int x=1;x<=n;x++){
-        total*=x;
-    }
+    fore(i,1,n+1) total*=i;
     return total;
 }
