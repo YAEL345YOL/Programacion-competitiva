@@ -22,9 +22,7 @@ int main(){
     ll tamalesRobados,cantidadDeIntegrantes;
     cin>>tamalesRobados>>cantidadDeIntegrantes;
     
-    --cantidadDeIntegrantes;
-    
-    cout<<(tamalesRobados/2 + tamalesRobados%2) + ((tamalesRobados-(tamalesRobados/2 + tamalesRobados%2))%cantidadDeIntegrantes);
+    cout<<(tamalesRobados/2 + tamalesRobados%2) + ((tamalesRobados-(tamalesRobados/2 + tamalesRobados%2))%(--cantidadDeIntegrantes));
   
     return 0;
 }
