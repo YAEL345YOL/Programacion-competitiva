@@ -18,8 +18,7 @@ using namespace std;
 #define outputF() freopen("output.txt","w",stdout);
 /*'A' = 65 'Z' = 90
   'a' = 97 'z' = 122
-  '0' = 48 '9' = 57 
-*/
+  '0' = 48 '9' = 57 */
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
