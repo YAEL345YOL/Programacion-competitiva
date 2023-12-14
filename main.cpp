@@ -14,8 +14,6 @@ using namespace std;
 #define fore(it,i,f) for(auto it=i;it<f;++it)
 #define letter(x) x>=65 && x<=90 || x>=97 && x<=122 ? true:false
 #define number(x) x>=48 && x<=57 ? true:false
-#define inputF() freopen("input.txt","r",stdin);
-#define outputF() freopen("output.txt","w",stdout);
 /*'A' = 65 'Z' = 90
   'a' = 97 'z' = 122
   '0' = 48 '9' = 57 */
