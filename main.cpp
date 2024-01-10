@@ -1,5 +1,4 @@
 // ΨΔΣL345ΨΘL
-//#pragma GCC optimize("Ofast,unroll-loops,no-stack-protector")
 #include <bits/stdc++.h>
 using namespace std;
 #define nl "\n"
