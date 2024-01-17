@@ -43,6 +43,5 @@ void MergeSort(vector<ll>&A,ll I,ll F){
         MergeSort(A,I,M);
         MergeSort(A,M+1,F);
         Merge(A,I,M,F);
-
     }
 } 
