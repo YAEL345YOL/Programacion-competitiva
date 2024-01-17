@@ -1,3 +1,3 @@
-bool valid(const ll&fila,const ll&columna,vector<vector<ll>>&matriz){
-    return fila>=0 && columna>=0 && fila<matriz.size() && columna<matriz[0].size();
+bool posValid(const ll&N,const ll&M,const ll&f,const ll&c){
+    return f>=0 && c>=0 && f<N && c<M; 
 }
