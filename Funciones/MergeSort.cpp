@@ -37,3 +37,4 @@ void MergeSort(vector<ll>&A,ll I,ll F){
         Merge(A,I,M,F);
     }
 }  
+// MergeSort(A,0,A.size()-1);
