@@ -1,10 +1,10 @@
 /*
 N = filas de la matriz
 M = columnas de la matriz
-f = fila a validar
+fi = fila a validar
 c = columna a validar
 */
 
-bool posValid(const ll&N,const ll&M,const ll&f,const ll&c){
-    return f>=0 && c>=0 && f<N && c<M; 
+bool posValid(const ll&N,const ll&M,const ll&fi,const ll&c){
+    return fi>=0 && c>=0 && fi<N && c<M; 
 }
