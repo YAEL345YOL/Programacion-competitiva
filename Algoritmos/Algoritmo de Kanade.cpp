@@ -1,4 +1,4 @@
-// Encontrar la suma maxima de un subarreglo
+// Encontrar la suma maxima de un subarreglo en un arreglo.
 ll Kadane(vector<ll>&arreglo){
     ll sumaActual=0,maximaSuma=INT64_MIN;
     fore(i,0,arreglo.size()){
