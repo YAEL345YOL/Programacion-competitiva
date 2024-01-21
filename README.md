@@ -1,2 +1,2 @@
 # GENERAL
-*Aqui guardo mis funciones tipicas y ejercicios pendientes*
+*Algoritmos y utiles para programación competitiva C++*
