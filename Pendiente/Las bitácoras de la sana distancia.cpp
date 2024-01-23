@@ -42,7 +42,7 @@ int main(){
     
     
     
-    ll contadorMinutos=1;
+    ll contadorMinutos=0;
     
     while(!duraciones.empty()){
         if(!numeros.empty()){
