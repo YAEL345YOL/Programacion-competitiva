@@ -17,8 +17,7 @@ using namespace std;
   'a' = 97 'z' = 122
   '0' = 48 '9' = 57 */
 struct evento{
-    ll id,pos;
-    char tipo;
+    ll id,tipo,pos;
 };
 vector<evento>eventos;
 bool orden(const evento&a,const evento&b){
@@ -32,26 +31,35 @@ int main(){
     ll n,a,b;
     cin>>n>>a>>b;
     
+    set<ll>entradasUnicas;
+    
     fore(i,0,n){
-        evento entrada,suma,salida;
+        evento entrada,salida;
         cin>>entrada.pos>>salida.pos;
         
+        entradasUnicas.insert(entrada.pos);
+        
         entrada.tipo=0;
-        suma.tipo=1;
         salida.tipo=2;
         
-        entrada.id=i;
-        suma.id=i;
-        salida.id=i;
+        entrada.id = salida.id = i;
         
         eventos.pb(entrada);
-        eventos.pb(suma);
         eventos.pb(salida);
+    }
+    
+    for(auto&e:entradasUnicas){
+        evento suma;
+        suma.id=-1;
+        suma.pos=e;
+        suma.tipo=1;
+        eventos.pb(suma);
     }
     
     sort(all(eventos),orden);
     
-    for(auto&eve:eventos) cout<< eve.id << ' ' << eve.tipo << ' ' << eve.pos << nl;
-  
-    return 0;
+    for(auto&evento:eventos) cout<<evento.id<<' '<<evento.tipo<<' '<<evento.pos<<nl;
+    
+    
+    return 0;   
 }
