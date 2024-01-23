@@ -47,6 +47,11 @@ int main(){
     ll contadorMinutos=1;
     
     while(!duraciones.empty()){
+        if(contadorMinutos==duraciones.front()){
+            cout<< atendiendo.top() << nl;
+            atendiendo.pop();
+            duraciones.pop();
+        }
         if(!numeros.empty()){
             atendiendo.push(numeros.front());
             numeros.pop();
