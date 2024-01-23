@@ -46,8 +46,12 @@ int main(){
     
     ll contadorMinutos=1;
     
-    while(!numeros.empty()){
-        
+    while(!duraciones.empty()){
+        if(!numeros.empty()){
+            atendiendo.push(numeros.front());
+            numeros.pop();
+        }
+        ++contadorMinutos;
     }
     
     return 0;
