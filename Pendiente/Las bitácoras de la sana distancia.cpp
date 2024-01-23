@@ -40,21 +40,19 @@ int main(){
         numeros.push(numero);
     }
     
-    cout<< numeros.front() << nl;
     
-    numeros.pop();
     
     ll contadorMinutos=1;
     
     while(!duraciones.empty()){
-        if(contadorMinutos==duraciones.front()){
-            cout<< atendiendo.top() << nl;
-            atendiendo.pop();
-            duraciones.pop();
-        }
         if(!numeros.empty()){
             atendiendo.push(numeros.front());
             numeros.pop();
+        }
+        if(contadorMinutos==duraciones.front() or contadorMinutos==1){
+            cout<< atendiendo.top() << nl;
+            atendiendo.pop();
+            duraciones.pop();
         }
         ++contadorMinutos;
     }
