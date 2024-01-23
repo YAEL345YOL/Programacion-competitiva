@@ -20,7 +20,7 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    ll n,suma=0;
+    ll n,suma=0,contadorMinutos=1;
     cin>>n;
     
     queue<ll>duraciones;
@@ -39,22 +39,21 @@ int main(){
         cin>>numero;
         numeros.push(numero);
     }
-    
-    
-    
-    ll contadorMinutos=0;
+
+    ll obj,minutosTranscurridos=0;
     
     while(!duraciones.empty()){
         if(!numeros.empty()){
             atendiendo.push(numeros.front());
             numeros.pop();
         }
-        if(contadorMinutos==duraciones.front() or contadorMinutos==1){
-            cout<< atendiendo.top() << nl;
-            atendiendo.pop();
+        if(obj==minutosTranscurridos or minutosTranscurridos==0){
+            obj = duraciones.front();
             duraciones.pop();
+            cout<<atendiendo.top()<<nl;
+            atendiendo.pop();
         }
-        ++contadorMinutos;
+        ++minutosTranscurridos;
     }
     
     return 0;
