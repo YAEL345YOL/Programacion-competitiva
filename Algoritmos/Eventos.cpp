@@ -31,13 +31,9 @@ int main(){
     ll n,a,b;
     cin>>n>>a>>b;
     
-    set<ll>entradasUnicas;
-    
     fore(i,0,n){
         evento entrada,salida;
         cin>>entrada.pos>>salida.pos;
-        
-        entradasUnicas.insert(entrada.pos);
         
         entrada.tipo=0;
         salida.tipo=2;
@@ -48,18 +44,23 @@ int main(){
         eventos.pb(salida);
     }
     
-    for(auto&e:entradasUnicas){
+    fore(i,a,b+1){
         evento suma;
+        suma.pos=i;
         suma.id=-1;
-        suma.pos=e;
         suma.tipo=1;
         eventos.pb(suma);
     }
     
     sort(all(eventos),orden);
     
-    for(auto&evento:eventos) cout<<evento.id<<' '<<evento.tipo<<' '<<evento.pos<<nl;
+    unordered_set<ll>frutasActuales;
     
+    for(auto&eve:eventos){
+        if(eve.tipo==0) frutasActuales.insert(eve.id);
+        
+        if(eve.tipo==1) frutasActuales.erase(eve.id);
+    }
     
     return 0;   
 }
