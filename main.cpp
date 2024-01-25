@@ -8,6 +8,7 @@ using namespace std;
 #define ld long double
 #define ll long long
 #define ull unsigned long long
+#define lsb(x) (x & -x) 
 #define sp(x) fixed<<setprecision(x)
 #define all(x) x.begin(),x.end()
 #define fore(it,i,f) for(auto it=i;it<f;++it)
