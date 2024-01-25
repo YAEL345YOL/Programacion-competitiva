@@ -21,11 +21,11 @@ vector<ll>arreglo;
 vector<ll>fenwick;
 ll n;
 void update(int index,int delta){
-    for(;index<=n;index+=lsb(index)) fenwick[index]+=delta;
+    for(index;index<=n;index+=lsb(index)) fenwick[index]+=delta;
 }
 ll query(ll index){
     ll suma=0;
-    for(;index>0;index-=lsb(index)) suma+=fenwick[index];
+    for(index;index>0;index-=lsb(index)) suma+=fenwick[index];
     return suma;
 }
 int main(){
@@ -50,7 +50,6 @@ int main(){
         cin>>l>>r;
         cout<<query(r) - query(l-1)<<nl;
     }
-    
   
     return 0;
 }
