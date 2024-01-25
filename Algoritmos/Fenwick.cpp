@@ -8,6 +8,7 @@ using namespace std;
 #define ld long double
 #define ll long long
 #define ull unsigned long long
+#define lsb(x) (x & -x) 
 #define sp(x) fixed<<setprecision(x)
 #define all(x) x.begin(),x.end()
 #define fore(it,i,f) for(auto it=i;it<f;++it)
@@ -20,11 +21,11 @@ vector<ll>arreglo;
 vector<ll>fenwick;
 ll n;
 void update(int index,int delta){
-    for(;index<=n;index+=(index & -index)) fenwick[index]+=delta;
+    for(;index<=n;index+=lsb(index)) fenwick[index]+=delta;
 }
 ll query(ll index){
     ll suma=0;
-    for(;index>0;index-=(index & -index)) suma+=fenwick[index];
+    for(;index>0;index-=lsb(index)) suma+=fenwick[index];
     return suma;
 }
 int main(){
