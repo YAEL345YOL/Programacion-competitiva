@@ -50,6 +50,7 @@ int main(){
         cin>>l>>r;
         cout<<query(r) - query(l-1)<<nl;
     }
+    
   
     return 0;
 }
