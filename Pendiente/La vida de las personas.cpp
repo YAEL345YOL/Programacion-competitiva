@@ -20,16 +20,19 @@ using namespace std;
 struct Query{
     ull id,tipo,año;
 };
+bool orden(const Query&a,const Query&b){
+    if(a.año!=b.año) return a.año<b.año;
+    return a.tipo<b.tipo;
+}
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-
     unordered_map<ull,ull>naciminetos;
     vector<Query>Querys;
 
-    ull n,m;
-    cin>>n>>m;
+    ull n,q;
+    cin>>n>>q;
 
     fore(i,0,n){
         Query entrada,salida;
@@ -42,7 +45,7 @@ int main(){
         Querys.pb(salida);
     }
 
-    fore(i,0,m){
+    fore(i,0,q){
         Query consulta;
         cin>>consulta.año;
         consulta.id=INT64_MAX;
@@ -50,24 +53,25 @@ int main(){
         Querys.pb(consulta);
     }
 
-    sort(all(Querys),[&](const Query&a,const Query&b){
-        if(a.año!=b.año) return a.año<b.año;
-        return a.tipo<b.tipo;
-    });
+    sort(all(Querys),orden);
 
     set<pair<ull,ull>>actual;
+
+    //for(auto&q:Querys) cout<<"ID: "<<q.id<<' '<<(q.tipo==0 ? "NACE :":(q.tipo==1 ? "CONSULTA: ":(q.tipo==2 ? "MUERE: ":"")))<<q.año<<nl; 
 
     for(auto&consulta:Querys){
         if(consulta.tipo==0) actual.insert({naciminetos[consulta.id],consulta.id});
         else if(consulta.tipo==1){
             if(!actual.empty()) cout<<actual.size()<<' '<<consulta.año-actual.rbegin()->first<<' '<<consulta.año-actual.begin()->first<<nl;
             else cout<<"0 0 0"<<nl;
+
             /*cout<<consulta.año<<": ";
             for(auto&par:actual) cout<<'{'<<par.first<<','<<par.second<<"} ";
             cout<<nl;*/
+            
         }
         else if(consulta.tipo==2) actual.erase({naciminetos[consulta.id],consulta.id});
     }
-    
+  
     return 0;
 }
