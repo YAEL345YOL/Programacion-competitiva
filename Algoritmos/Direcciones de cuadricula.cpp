@@ -4,5 +4,5 @@ bool posValid(const ll&N,const ll&M,const ll&fi,const ll&co){ return fi>=0 && co
 int dr[] = {-1,0,1,0};
 int dc[] = {0,1,0,-1};
 // Ocho casillas.
-int dr[] = {-1,-1,0,1,1,1,0,-1},
-int dc[] = {0,-1,-1,-1,0,1,1,1};
+int dr[] = {0, 0, 1, 1, 1, -1, -1, -1};
+int dc[] = {-1, 1, -1, 0, 1, -1, 0, 1};
