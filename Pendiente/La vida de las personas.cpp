@@ -72,6 +72,8 @@ int main(){
         }
         else if(consulta.tipo==2) actual.erase({naciminetos[consulta.id],consulta.id});
     }
+
+    // prueba
   
     return 0;
 }
