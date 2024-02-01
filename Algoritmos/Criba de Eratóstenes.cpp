@@ -1,4 +1,5 @@
-vector<bool>cribaDeEratostenes(1000000,1);
+ull MAX = /*tamaño de la criba*/ 1000000;
+vector<bool>cribaDeEratostenes(MAX,1);
 void generarPrimos(){
     cribaDeEratostenes[0] = cribaDeEratostenes[1] = 0;
     for(ll i=2;i*i<=cribaDeEratostenes.size();++i){
