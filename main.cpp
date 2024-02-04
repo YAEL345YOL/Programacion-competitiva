@@ -5,7 +5,6 @@ using namespace std;
 #define f first
 #define s second
 #define pb push_back
-#define ld long double
 #define ll long long
 #define ull unsigned long long
 #define lsb(x) (x & -x) 
@@ -21,7 +20,7 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    // Code
-  
+    
+
     return 0;
 }
