@@ -1,10 +1,10 @@
 ll binarySearch(vector<ll>&vec,const ll&num){
-    ll ini=0,fin=vec.size()-1,medio;
-    while(ini<=fin){
-        medio = (ini+fin)/2;
-        if(num==vec[medio]) return medio;
-        else if(num>vec[medio]) ini=medio+1;
-        else if(num<vec[medio]) fin=medio-1;
+    ll left=0,right=vec.size()-1,mid;
+    while(left<=right){
+        mid = (left+right)/2;
+        if(num==vec[mid]) return mid;
+        else if(num>vec[mid]) left=mid+1;
+        else if(num<vec[mid]) right=mid-1;
     }
     return -1;
 }
