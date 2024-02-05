@@ -1,4 +1,4 @@
-// O(log(pot))
+// O(log(pot)) !!cámbiese a unordered_map<ull,unordered_map<ull,ull>> en caso de usar diferentes bases
 unordered_map<ull,ull>mem;
 ull fpow(ull n,ull pot){
     if(mem.count(pot)>0) return mem[pot];
