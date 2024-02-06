@@ -9,3 +9,7 @@ ll algoritmoEuclides(ll a,ll b){
     }   
     return b;
 }
+// Variante con recursión  O(log(min(a, b)))
+ll algoritmoEuclides(ll a,ll b){ 
+    return b ? algoritmoEuclides(b,a%b):a; 
+}
