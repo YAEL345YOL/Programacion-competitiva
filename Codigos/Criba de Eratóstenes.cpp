@@ -1,10 +1,9 @@
-ull MAX = /*tamaño de la criba*/ 1000000;
-vector<bool>cribaDeEratostenes(MAX,1);
-void generarPrimos(){
-    cribaDeEratostenes[0] = cribaDeEratostenes[1] = 0;
-    for(ll i=2;i*i<=cribaDeEratostenes.size();++i){
-        if(cribaDeEratostenes[i]){
-            for(ll j=i*i;j<cribaDeEratostenes.size();j+=i) cribaDeEratostenes[j] = 0;
-        }
-    }
+ll MAX = 10000000;
+vector<bool>primo(MAX,1);
+void generarCriba(){
+    primo[0] = primo[1] = 0;
+    for(ll i=2;i*i<=MAX;++i)
+        if(primo[i])
+            for(ll j=i*i;j<=MAX;j+=i)
+                primo[j] = 0;
 }
