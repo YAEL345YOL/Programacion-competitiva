@@ -46,6 +46,17 @@ ll query(ll v,ll l,ll r,ll i,ll j){
     return max(query(2*v,l,(l+r)/2,i,j),query(2*v+1,((l+r)/2)+1,r,i,j));
 }
 
+void update(ll v,ll l,ll r,ll p,ll nv){
+    if(l==r){
+        segtree[v] = nv;
+        return;
+    }
+    ll m = (l+r)/2;
+    if(p<=m) update(2*v,l,m,p,nv);
+    else update(2*v+1,m+1,r,p,nv);
+    segtree[v] = max(segtree[2*v],segtree[2*v+1]);
+}
+
 int main(){
     fastIO;
 
