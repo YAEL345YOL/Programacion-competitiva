@@ -1,4 +1,0 @@
-// gcd
-__gcd(x,y);
-// lcm
-void lcm(ll a,ll b){ (a*b)/__gcd(a,b); } 
