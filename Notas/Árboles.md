@@ -14,7 +14,17 @@ Podemos clafisificar en tres tipos de nodos en un Árbol:
 1. Crear : crea un árbol en la estructura de datos.
 2. Insertar : inserta datos en un árbol.
 3. Buscar : busca datos específicos en un árbol para comprobar si están presentes o no.
-4. Recorrido:
+4. Recorrido(s)
+
+### Tipos de recorridos:
+1.In-Order:
+LVR
+
+2.Pre-Order
+VLR
+
+3.Post-Order
+LRV
 
 
 #### Nodo principal:
