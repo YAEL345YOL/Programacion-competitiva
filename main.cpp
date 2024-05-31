@@ -2,16 +2,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define nl "\n"
-#define f first
-#define s second
 #define pb push_back
-#define pf push_front
 #define lsb(x) (x & -x) 
 #define sp(x) fixed<<setprecision(x)
 #define all(x) x.begin(),x.end()
 #define fore(it,i,f) for(auto it=i;it<f;++it)
-#define letter(x) x>=65 && x<=90 || x>=97 && x<=122 ? true:false
-#define number(x) x>=48 && x<=57 ? true:false
 #define fastIO ios_base::sync_with_stdio(false),cin.tie(NULL),cout.tie(NULL)
 
 typedef long long ll;
