@@ -1,9 +1,8 @@
 struct Fenwick{
-    ll n;
     vll fenwick;
-    Fenwick(ll _n): fenwick(_n+1,0), n(_n) {}
+    Fenwick(ll n): fenwick(n+1,0), {}
     void update(ll idx,ll delta){
-        for(;idx<=n;idx+=lsb(idx))
+        for(;idx<=fenwick.size();idx+=lsb(idx))
             fenwick[idx] += delta;
 
     }
