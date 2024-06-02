@@ -1,81 +1,27 @@
-// ΨΔΣL345ΨΘL
-#include <bits/stdc++.h>
-using namespace std;
-#define nl "\n"
-#define f first
-#define s second
-#define pb push_back
-#define pf push_front
-#define lsb(x) (x & -x) 
-#define sp(x) fixed<<setprecision(x)
-#define all(x) x.begin(),x.end()
-#define fore(it,i,f) for(auto it=i;it<f;++it)
-#define letter(x) x>=65 && x<=90 || x>=97 && x<=122 ? true:false
-#define number(x) x>=48 && x<=57 ? true:false
-#define fastIO ios_base::sync_with_stdio(false),cin.tie(NULL),cout.tie(NULL)
-
-typedef long long ll;
-typedef unsigned long long ull;
-typedef pair<ll,ll>par;
-typedef vector<ll>vll;
-typedef vector<vector<ll>>vvll;
-typedef vector<bool>vb;
-
-/*'A' = 65 'Z' = 90
-  'a' = 97 'z' = 122
-  '0' = 48 '9' = 57 */
-
-ll n,q;
-vll vc;
-vll segtree;
-
-void build(ll v,ll l,ll r){
-    if(l==r){
-        segtree[v] = vc[l];
-        return;
+struct segmentTree{
+    vll segtree;
+    segmentTree(ll n):segtree(2*n-1){}
+    void build(ll l,ll r,ll n,vll arr){
+        if(l==r){
+            segtree[n] = arr[l];
+            return;
+        }
+        build(l,(l+r)/2,2*n+1,arr); 
+        build((l+r)/2+1,r,2*n+2,arr); 
+        segtree[n] = max(segtree[2*n+1],segtree[2*n+2]);
     }
-    ll m = (l+r)/2;
-    build(2*v,l,m);
-    build(2*v+1,m+1,r);
-    segtree[v] = max(segtree[2*v],segtree[2*v+1]);
-}
-
-ll query(ll v,ll l,ll r,ll i,ll j){
-    if(r<i or j<l) return INT64_MIN;
-    else if(l>=i && r<=j) return segtree[v];
-    return max(query(2*v,l,(l+r)/2,i,j),query(2*v+1,((l+r)/2)+1,r,i,j));
-}
-
-void update(ll v,ll l,ll r,ll p,ll nv){
-    if(l==r){
-        segtree[v] = nv;
-        return;
+    void update(ll l,ll r,ll n,ll p,ll nv){
+        if(l==r){
+            segtree[n] = nv;
+            return;
+        }
+        if(p<=(l+r)/2) update(l,(l+r)/2,2*n+1,p,nv);
+        else update((l+r)/2+1,r,2*n+2,p,nv);
+        segtree[n] = max(segtree[2*n+1],segtree[2*n+2]);
     }
-    ll m = (l+r)/2;
-    if(p<=m) update(2*v,l,m,p,nv);
-    else update(2*v+1,m+1,r,p,nv);
-    segtree[v] = max(segtree[2*v],segtree[2*v+1]);
-}
-
-int main(){
-    fastIO;
-
-    cin>>n;
-
-    vc.resize(n);
-    segtree.resize(4*n);
-
-    fore(i,0,n) cin>>vc[i];
-
-    build(1,0,n-1);
-
-    cin>>q;
-
-    while(q--){
-        ll a,b;
-        cin>>a>>b;
-        cout<<query(1,0,n-1,a,b)<<nl;
+    ll query(ll l,ll r,ll n,ll i,ll j){
+        if(l>=i && r<=j) return segtree[n];
+        else if(l>j or r<i) return INT32_MIN;
+        return max(query(l,(l+r)/2,2*n+1,i,j),query((l+r)/2+1,r,2*n+2,i,j));
     }
-  
-    return 0;
-}
+};
