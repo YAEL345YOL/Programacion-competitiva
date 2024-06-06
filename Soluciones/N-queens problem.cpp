@@ -1,4 +1,4 @@
-ll n,combinaciones=0;
+ll n,c=0;
 vll columnas(n,-1);
 
 bool valid(ll fila,ll columna){
@@ -8,7 +8,7 @@ bool valid(ll fila,ll columna){
 
 void backtracking(ll columna,ll reinas){
     if(reinas==n){
-        ++combinaciones;
+        ++c;
         return;
     }
     if(columna==n) return;
