@@ -1,13 +1,12 @@
-void DFS(const ll&nodo,vector<bool>&visitados,vector<vector<ll>>&matrizAdyacencia){
-    visitados[nodo] = 1;
-    cout<< nodo << nl;
-    for(auto&adyacente:matrizAdyacencia[nodo]){
-        if(!visitados[adyacente]){
-            DFS(adyacente,visitados,matrizAdyacencia);
-        }
-    }
-}
-void initDFS(const ll&nodoInicial,vector<vector<ll>>&matrizAdyacencia){
-    vector<bool>visitados(matrizAdyacencia.size(),0);
-    DFS(0,visitados,matrizAdyacencia);
+ll n;
+vb visited(n,0);
+vvll graph;
+
+void DFS(ll u){
+    visited[u] = 1;
+    cout<<u<<nl;
+    for(auto&v:graph[u])
+        if(!visited[v])
+            DFS(v);
+        
 }
