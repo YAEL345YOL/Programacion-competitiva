@@ -1,13 +1,13 @@
-vll arr,actual;
-vvll subconjuntos;
+vll arr,act;
+vvll subsets;
 
-void todosSubconjuntos(ll i){
+void allSubsets(ll i){
     if(i==arr.size()){
-        subconjuntos.pb(actual);
+        subsets.pb(act);
         return;
     }
-    actual.pb(arr[i]);
-    todosSubconjuntos(i+1);
-    actual.pop_back();
-    todosSubconjuntos(i+1);
+    act.pb(arr[i]);
+    allSubsets(i+1);
+    act.pop_back();
+    allSubsets(i+1);
 }

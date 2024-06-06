@@ -1,14 +1,16 @@
+vll arr;
+
 struct segmentTree{
     vll segtree;
     segmentTree(ll n):segtree(4*n){}
-    void build(ll l,ll r,ll n,vll arr){
+    void build(ll l,ll r,ll n){
         if(l==r){
             segtree[n] = arr[l];
             return;
         }
         ll m = (l+r)/2;
-        build(l,m,2*n,arr); 
-        build(m+1,r,2*n+1,arr); 
+        build(l,m,2*n); 
+        build(m+1,r,2*n+1); 
         segtree[n] = max(segtree[2*n],segtree[2*n+1]);
     }
     void update(ll l,ll r,ll n,ll p,ll nv){

@@ -7,7 +7,6 @@ using namespace std;
 #define sp(x) fixed<<setprecision(x)
 #define all(x) x.begin(),x.end()
 #define fore(it,i,f) for(auto it=i;it<f;++it)
-#define fastIO ios_base::sync_with_stdio(false),cin.tie(NULL),cout.tie(NULL)
 
 typedef long long ll;
 typedef unsigned long long ull;
@@ -21,9 +20,9 @@ typedef vector<bool>vb;
   '0' = 48 '9' = 57 */
 
 int main(){
-    fastIO;
+    cin.tie(0)->sync_with_stdio(0),cout.tie(0);
 
     
-  
+
     return 0;
 }
