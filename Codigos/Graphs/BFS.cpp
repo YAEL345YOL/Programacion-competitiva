@@ -8,6 +8,7 @@ void BFS(ll f){
     while(!visiting.empty()){
         ll u = visiting.front();
         visiting.pop();
+        cout<<u<<nl;
         for(auto&v:graph[u]){
             if(!visited[v]){
                 visited[v] = 1;
