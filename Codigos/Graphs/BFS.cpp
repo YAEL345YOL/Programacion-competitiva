@@ -1,4 +1,5 @@
-vvll graph, dis;
+vvll graph;
+vll dist;
 
 void BFS(ll f){
     vb visited(graph.size(),0);
@@ -12,7 +13,7 @@ void BFS(ll f){
         for(auto&v:graph[u]){
             if(!visited[v]){
                 visited[v] = 1;
-                dis[v] = dis[u] + 1;
+                dist[v] = dist[u] + 1;
                 visiting.push(v);
             }
         }
