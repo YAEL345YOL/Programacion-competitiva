@@ -1,6 +1,5 @@
-ll n;
-vb visited(n,0);
 vvll graph;
+vb visited(graph.size(),0);
 
 void DFS(ll u){
     visited[u] = 1;

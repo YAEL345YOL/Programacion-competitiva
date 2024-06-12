@@ -1,5 +1,6 @@
 ll MAX = 1000000;
 vll phi(MAX);
+
 void phiSieve(){
     iota(all(phi),0);
     fore(i,2,MAX)
