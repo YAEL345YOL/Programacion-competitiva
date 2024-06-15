@@ -12,10 +12,10 @@ typedef long long ll;
 typedef unsigned long long ull;
 typedef pair<ll,ll>par;
 typedef vector<ll>vll;
+typedef vector<par>vpar;
 typedef vector<bool>vb;
-typedef vector<par>vp;
 typedef vector<vll>vvll;
-typedef vector<vp>vvpar;
+typedef vector<vpar>vvpar;
 typedef vector<vb>vvb;
 
 /*'A' = 65 'Z' = 90
