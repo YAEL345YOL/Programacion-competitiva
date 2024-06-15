@@ -22,6 +22,8 @@ typedef vector<vb>vvb;
   'a' = 97 'z' = 122
   '0' = 48 '9' = 57 */
 
+ll n,m,q;
+
 int main(){
     cin.tie(0)->sync_with_stdio(0),cout.tie(0);
 
