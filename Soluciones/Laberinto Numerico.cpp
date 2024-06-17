@@ -25,9 +25,13 @@ typedef vector<vb>vvb;
 ll n,m,a,b;
 vvll matriz;
 vvll dist;
-vll s = {8,4,2,1}, dx = {1,0,-1,0},dy = {0,1,0,-1};
+vll s = {8,4,2,1}, dx = {1,0,-1,0}, dy = {0,1,0,-1};
 
-void BFS(par S){
+bool valid(par u){
+    return u.first>=0 && u.second>=0 && u.first<n && u.second<m;
+}
+
+ll BFS(par S){
     queue<par>visiting;
     dist[S.first][S.second] = 0;
     visiting.push(S);
@@ -35,12 +39,19 @@ void BFS(par S){
         auto [i,j] = visiting.front();
         visiting.pop();
         fore(p,0,4){
+            par v = {i+dx[p],j+dy[p]};
             if(matriz[i][j]-s[p]>=0){
-                matriz[i][j]-=p;
+                matriz[i][j]-=s[p];
                 continue;
+            }
+            if(!valid(v)) return dist[i][j];
+            if(dist[v.first][v.second]==-1){
+                dist[v.first][v.second] = dist[i][j] + 1;
+                visiting.push({v});
             }
         }
     }
+    return -1;
 }
 
 int main(){
@@ -51,13 +62,9 @@ int main(){
     matriz.resize(n,vll(m));
     dist.resize(n,vll(m,-1));
     
-    fore(i,0,n){
-        fore(j,0,m){
-            cin>>matriz[i][j];
-        }
-    }
+    fore(i,0,n) fore(j,0,m) cin>>matriz[i][j];
     
-    BFS({a,b});
+    cout<<BFS({a-1,b-1});
 
     return 0;
 }
