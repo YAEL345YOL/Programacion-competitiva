@@ -31,5 +31,5 @@ vll topologicalSort(){
 }
 /*
     don't forget:
-    1. The graph needs to be a DAG (directed acyclic graph) for get a valid answer, otherwise the fuction will return am empty vector.
+    1. The graph needs to be a DAG (directed acyclic graph) for get a valid answer, otherwise the fuction will return an empty vector.
 */
