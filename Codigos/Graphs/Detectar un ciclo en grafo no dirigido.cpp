@@ -10,6 +10,7 @@ bool detectCycleComponent(ll u,ll parent){
 }
 
 bool detectCycleUndirectedGraph(){
+    visited.resize(graph.size(),0);
     fore(i,0,n)
         if(!visited[i] && detectCycleComponent(i,-1));
             return 1;
