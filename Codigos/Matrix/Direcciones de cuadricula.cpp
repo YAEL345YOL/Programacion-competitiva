@@ -1,5 +1,5 @@
 // Determina si una posición a la que se quiere ingresar es valid en relacion NxM.
-bool posValid(const ll&N,const ll&M,const ll&fi,const ll&co){ return fi>=0 && co>=0 && fi<N && co<M; }
+bool valid(par u){ return u.first>=0 && u.second>=0 && u.first<n && u.second<u.second; }
 // Cuadro casillas (arriba, abajo, derecha y izquierda).
 int dr[] = {-1,0,1,0};
 int dc[] = {0,1,0,-1};
