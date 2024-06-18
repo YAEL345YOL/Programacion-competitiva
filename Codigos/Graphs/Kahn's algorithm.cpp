@@ -18,11 +18,9 @@ vll topologicalSort(){
         ll u = visiting.front();
         visiting.pop();
         res.pb(u);
-        for(auto&v:graph[u]){
-            state[v]-=1;
-            if(state[v]==0)
+        for(auto&v:graph[u])
+            if(--state[v]==0)
                 visiting.push(v);
-        }
     }
     
     if(res.size()!=graph.size()) res.clear();
