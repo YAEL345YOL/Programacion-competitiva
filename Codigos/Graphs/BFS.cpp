@@ -2,6 +2,7 @@ vvll graph;
 vll dist;
 
 void BFS(ll S){
+    dist.resize(graph.size(),-1);
     queue<ll>visiting;
     dist[S] = 0;
     visiting.push(S);
