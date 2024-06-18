@@ -1,5 +1,5 @@
 vvll graph;
-vb visited(graph.size(),0);
+vb visited;
 
 void DFS(ll u){
     visited[u] = 1;
@@ -9,3 +9,7 @@ void DFS(ll u){
             DFS(v);
         
 }
+/*
+    don't forget:
+    1. visited.resize(graph.size(),0);
+*/
