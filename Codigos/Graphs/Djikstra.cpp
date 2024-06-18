@@ -1,21 +1,25 @@
-const ll INF = 10e9+7;
-vector<vector<par>>graph;
+const ll INF = 1e9+7;
+vvpar graph;
 vll dist;
 
-void Djikstra(ll f){   
-    priority_queue<par,vector<par>,greater<par>>pq;
-    dist[f] = 0;
-    pq.push({0,f});
+void Djikstra(ll S){
+    dist.resize(graph.size(),INF);
+    priority_queue<par,vpar,greater<par>>pq;
+    dist[S] = 0;
+    pq.push({0,S});
     while(!pq.empty()){
-        auto [u,d] = pq.top();
+        auto [w1,u] = pq.top();
         pq.pop();
-        if(d==dist[u]){
-            for(auto&[v,w]:graph[u]){
-                if(dist[u]+w<dist[v]){
-                    dist[v] = dist[u] + w;
-                    pq.push({dist[v],v});
-                }
+        if(w1>dist[u]) continue;
+        for(auto&[w2,v]:graph[u]){
+            if(dist[u]+w2<dist[v]){
+                dist[v] = dist[u] + w2;
+                pq.push({dist[v],v});
             }
         }
     }
 }
+/*
+    don't forget:
+    1. graph[u].push_back({w,v})
+*/
