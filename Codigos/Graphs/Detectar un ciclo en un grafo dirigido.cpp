@@ -11,6 +11,7 @@ bool detectCycleComponent(ll u){
 }
 
 bool detectCycleDirectedGraph(){
+    state.resize(graph.size(),0);
     fore(i,0,graph.size())
         if(state[i]==0 && detectCycleComponent(i))
             return 1;
