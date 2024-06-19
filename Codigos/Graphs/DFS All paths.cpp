@@ -17,9 +17,10 @@ void DFS(ll u){
     path.pop_back();
 }
 /*
-  don't forget:
-  1. print paths:
-  for(auto&c:paths){
+    don't forget:
+    visited.resize(n,0);
+    // Print all paths
+    for(auto&c:paths){
         for(auto&e:c) cout<<e<<' ';
         cout<<nl;
     }
