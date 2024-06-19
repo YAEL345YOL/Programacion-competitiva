@@ -21,5 +21,6 @@ void Djikstra(ll S){
 }
 /*
     don't forget:
-    1. graph[u].push_back({w,v}); graph[v].push_back({w,u});
+    graph[u].push_back({w,v});
+    graph[v].push_back({w,u});
 */
