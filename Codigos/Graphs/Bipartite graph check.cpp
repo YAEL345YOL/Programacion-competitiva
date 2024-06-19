@@ -1,8 +1,7 @@
 vvll graph;
-vll state;
 
 bool isBipartite(ll S){
-    state.resize(graph.size(),-1);
+    vll state(graph.size(),-1);
     queue<ll>visiting;
     state[S] = 0;
     visiting.push(S);
