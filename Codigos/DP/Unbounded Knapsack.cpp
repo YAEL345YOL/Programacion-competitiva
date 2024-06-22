@@ -1,4 +1,4 @@
-ll UnboundedKnapsack(vpar&items,ll W){
+vll UnboundedKnapsack(vpar&items,ll W){
     vll dp(W+1,0);
 
     fore(i,0,W+1){
@@ -9,5 +9,5 @@ ll UnboundedKnapsack(vpar&items,ll W){
         }
     }
 
-    return dp[W];
+    return dp;
 }
