@@ -1,4 +1,4 @@
-vll arr,act;
+vll arr, act;
 vvll subsets;
 
 void subset(ll i){
