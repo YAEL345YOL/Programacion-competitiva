@@ -13,3 +13,7 @@ vll LCS(){
 
     return dp;
 }
+/*
+    don't forget:
+    time complexity O(n^2)
+*/
