@@ -17,3 +17,7 @@ ll LISBS(){
 
     return dp.size();
 }
+/*
+    don't forget:
+    time complexity O(n*logn)
+*/
