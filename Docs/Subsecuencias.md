@@ -29,7 +29,7 @@ Obsérvese que se mantiene el orden relativo de los elementos, lo único que cam
 ## Obtención - Forma recursiva
 Para obtener las subsecuencias debemos iterar el arreglo y en cada iteración tomar y no tomar el elemento actual mediante llamadas recursivas, de forma que paremos al terminar de iterar el arreglo. 
 
-Vamos a declarar una función la cual reciba como parámetro la posición actual en el arreglo, este será un entero $i$. También vamos a declarar un arreglo auxiliar $B$ el cual llevara el llevara el registro de la subsecuencia actual. Supongamos el siguiente pseudocódigo:
+Vamos a declarar una función la cual reciba como parámetro la posición actual en el arreglo, este será un entero $i$. También vamos a declarar un arreglo auxiliar $B$ el cual el llevara el registro de la subsecuencia actual. Supongamos el siguiente pseudocódigo:
 
 ```
 arreglo B = {}
