@@ -26,7 +26,6 @@ Los procedimientos son los siguientes:
 
 Una vez iterados todos los elementos del arreglo $A$ podemos saber el LIS simplemente sacando la cardinalidad de $B$, ósea que la respuesta es $|B|$.
 ### ¿Por qué funciona?
- 
  El motivo de que funcione este procedimiento, es que si observamos detenidamente el proceso de agregar elementos en el arreglo, lo que hacemos es **únicamente agregar o hacer push a aquellos elementos los cuales son necesariamente mayores al último elemento de $B$**, de forma que siempre que agreguemos un elemento el tamaño de su subsecuencia es el número de elementos del arreglo y en dado caso contario estamos **remplazando** elementos en lugar de agregar, por tanto, en cada momento, si es que la subsecuencia que estamos viendo **NO** es la mejor, entonces simplemente se va a reutilizar para el siguiente candidato, cabe aclarar que este método tiene limitantes y apesar de su baja complejidad *O(n log n)* sigue siendo una
   de las mejores alternativas respecto a encontrar el LIS.
 ### Código
