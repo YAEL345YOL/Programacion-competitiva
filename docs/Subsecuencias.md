@@ -66,18 +66,4 @@ La complejidad de la solución recursiva es de $O(2^n)$, esto debido a que un ni
 ![RT](https://github.com/YAEL345YOL/Programacion-competitiva/assets/50465405/b5e70565-bf76-4cab-b009-734e45a8e22b)
 ### Código:
 
-```C++
-vector<int>arr, act;
-vector<vector<int>>subsets;
-
-void subsequence(int i){
-    if(i==arr.size()){
-        subsets.push_back(act);
-        return;
-    }
-    act.push_back(arr[i]);
-    subsequence(i+1);
-    act.pop_back();
-    subsequence(i+1);
-}
-```
+Codigos/Combinatory/Subsequences.cpp
