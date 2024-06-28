@@ -1,5 +1,4 @@
 # Subsecuencias
----
 Una subsecuencia es el resultante de eliminar algunos (o ningún) elemento de un arreglo.
 Lo que quiere decir que un una subsecuencia podemos tomar o no un elemento, de forma que respetemos el orden relativo de los elementos.
 De forma que si tenemos el arreglo:
